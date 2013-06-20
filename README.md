@@ -1,11 +1,14 @@
 # login-utils
 
-  login-utils is a very simple user authentication library. The library has a default User MangoDB model (using mongoose).
+  login-utils is a very simple user authentication library. The library has a default User MongoDB model (using Mongoose).
 Moreover, the encryption of the password is performed using bcrypt.
 
 ## Installation
 
     $ npm install login-utils
+    $ export MONGODB_CONNECT="mongodb://[yourUserName]:[yourPassword]@[your_db_host:your_db_port]/[your_db_name]"
+
+  Setting environment variable MONGODB_CONNECT will enable Mongoose to tap into a remote MongoDB resource ([MongoLab](http://www.mongolab.com) for example). If it is unset, localhost port 27017 is assumed.
 
 ## Usage
 
@@ -217,6 +220,7 @@ Note that this will also create a user, if not user with a matching email addres
 ## Additional features
   - Retrieving user by id
   - customizing bcrypt encrypter (e.g. configuring the number of rounds)
+  - Remote login support provided by [Austin Mullins](http://github.com/amullins83)
 
 ## Licence
 

@@ -1,3 +1,7 @@
+0.1.0 / 2013-06-19
+====================
+* Refactored for better remote support
+
 0.0.7 / 2013-04-06
 ====================
 * Enable setting of bcrypt number of rounds

@@ -2,12 +2,12 @@ var vows = require("vows"),
   mongoose = require("mongoose"),
   assert = require("assert"),
   util = require("util"),
-  User = require("./../lib/model/User"),
-  SocialMediaUser = require("./../lib/model/SocialMediaUser"),
+  UserSchema = require("./../lib/model/UserSchema"),
+  SocialMediaUserSchema = require("./../lib/model/SocialMediaUserSchema"),
   loginChecker = require("./../lib/loginChecker"),
   expect = require("expect.js");
 
-mongoose.connect("mongodb://127.0.0.1/login-utils-test");
+//mongoose.connect("mongodb://127.0.0.1/login-utils-test");
 var firstName = "kenshiro";
 var lastName = "hackuto";
 var userName = "kenshiro.hokuto";
@@ -21,11 +21,13 @@ var tokenString = "";
 
 var defaultBcryptSaltFactor = 11;
 
+var nullFunction = function() {};
+
 vows.describe("User checks").addBatch({
   "Delete all collections":{
     topic: function(){
       for (var i in mongoose.connection.collections) {
-        mongoose.connection.collections[i].remove(function() {});
+        mongoose.connection.collections[i].remove(nullFunction);
       }
       this.callback(null);
     },
